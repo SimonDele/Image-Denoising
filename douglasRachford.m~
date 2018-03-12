@@ -1,0 +1,8 @@
+%Algorithme de douglas Rachford
+
+n_iter = 100;
+
+for i=1:n_iter
+    xn = prox_G2(yn)
+end
+
