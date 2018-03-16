@@ -32,6 +32,6 @@ else
     prox_y1 = zeros(h*w);
 end
 
-res = (prox_y1,prox_y2);
+res = prox_y1 + prox_y2;
 
 end

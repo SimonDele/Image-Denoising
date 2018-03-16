@@ -19,10 +19,10 @@ u = f;
 s = zeros(size(f));
 
 % loop
+y = f
 for i=1:n_iter
-    [xu,xs] = prox_G2(h,w,u,s);
-    yu = yu + lambda*(prox_G1(2*xu-yu)- xu);
-    ys = ys + lambda*(prox_G1(2*xs-ys)- xs);
+    x = prox_G2(h,w,y);
+    y = y + lambda*(prox_G1(2*x-y)- x);
 end
 
 % reshape(img_striped, w, h)
