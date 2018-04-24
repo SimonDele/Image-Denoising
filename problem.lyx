@@ -1,0 +1,235 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass article
+\begin_preamble
+
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{soul}
+\usepackage{listings}
+\usepackage{mathrsfs}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+Le papier stipule que pour 
+\begin_inset Formula $f\left(\begin{array}{c}
+x\\
+y
+\end{array}\right)=g\left(x\right)+h\left(y\right)$
+\end_inset
+
+, le prox est donné par
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+prox_{f}\left(\begin{array}{c}
+x\\
+y
+\end{array}\right)=\left(\begin{array}{c}
+prox_{g}\left(x\right)\\
+prox_{h}\left(y\right)
+\end{array}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Cependant, dans notre cas nous cherchons 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{equation}     
+\backslash
+begin{aligned} 		
+\backslash
+underset{z=(u,s,y_1,y_2)^T}{inf} 
+\backslash
+quad G_1(z) + G_2(z) 
+\backslash
+
+\backslash
+         avec 
+\backslash
+quad G_1(z) = 
+\backslash
+iota_
+\backslash
+mathcal{C}(u,s)  + h(y_1, y_2) 
+\backslash
+
+\backslash
+         	
+\backslash
+quad G_2(z) = 
+\backslash
+iota_
+\backslash
+mathcal{
+\backslash
+widehat{C}}(u,y_1) + 
+\backslash
+iota_
+\backslash
+mathcal{
+\backslash
+widetilde{C}}(s, y_2) 
+\backslash
+
+\backslash
+    
+\backslash
+end{aligned} 
+\backslash
+end{equation}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Il semble assez clair que, par identification, on ait 
+\begin_inset Formula 
+\[
+prox_{G_{1}}\left(\begin{array}{c}
+u\\
+s\\
+y_{1}\\
+y_{2}
+\end{array}\right)=\left(\begin{array}{c}
+prox_{\iota_{\mathcal{C}}}\left(u,s\right)\\
+prox_{h}\left(y_{1},y_{2}\right)
+\end{array}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Cependant dans le cas de 
+\begin_inset Formula $G_{2}$
+\end_inset
+
+ les paramètres ne sont pas ordonnés comme 
+\begin_inset Formula $z$
+\end_inset
+
+ et cela rend l'identification inefficace, il faudrait en effet avoir
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+prox_{G_{2}}\left(\begin{array}{c}
+u\\
+y_{1}\\
+s\\
+y_{2}
+\end{array}\right)=\left(\begin{array}{c}
+prox_{\iota_{\mathcal{\widehat{C}}}}\left(u,y_{1}\right)\\
+prox_{\iota_{\widetilde{\mathcal{C}}}}\left(s,y_{2}\right)
+\end{array}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Mais nous ne savons pas comment procéder avec 
+\begin_inset Formula $prox_{G_{2}}\left(\begin{array}{c}
+u\\
+s\\
+y_{1}\\
+y_{2}
+\end{array}\right)$
+\end_inset
+
+.
+\end_layout
+
+\end_body
+\end_document

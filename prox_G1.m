@@ -1,7 +1,7 @@
 function res = prox_G1 (z,f,h,w, nabla_x, nabla_y)
 
 %parameters : 
-mu_2 = 1;
+mu_2 = 10;
 mu_1 = 1;
 
 u = z(1:h*w,:);
