@@ -20,7 +20,7 @@ nabla_y = sparse(kron(D,I));
 
 % parameter
 n_iter = 500;
-lambda = 0.000001;
+lambda = 0.01;
 
 %init
 u = double(f);
@@ -41,6 +41,8 @@ end
 
 u = x(1:h*w,:);
 s = x(h*w+1:h*w*2,:);
+y1  = x(2*h*w+1:3*h*w,:);
+y2 = x(3*h*w+1:4*h*w,:);
 
 u = reshape(u, h, w);
 s = reshape(s,h,w);
