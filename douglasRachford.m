@@ -15,19 +15,19 @@ I = speye(h);
 D =  sparse(-diag(ones(w,1), 0) + diag(ones(w-1,1),1));
 D(w,w) = 0;
 
-nabla_x = sparse(kron(I,D));
-nabla_y = sparse(kron(D,I));
+nabla_x = sparse(kron(D, I));
+nabla_y = sparse(kron(I, D));
 
 %% Algorithme de douglas Rachford
 
 % parameter
 n_iter = 500;
-lambda = 0.1;
+lambda = 0.5;
 
 %init
 u = f;
 s = zeros(size(f));
-y1 = nabla_x*u;
+y1 = nabla_x*f;
 y2 = zeros(size(f));
 
 % loop
@@ -36,8 +36,8 @@ for i=1:n_iter
     if mod(i,10)==0
         disp(sprintf('%d / %d',i, n_iter));
     end
-    x = prox_G1(y,f,h,w, nabla_x, nabla_y);
-    y = y + lambda*(prox_G2(h,w,2*x-y, nabla_x, nabla_y)- x);
+    x = prox_G2(h,w,y, nabla_x, nabla_y);
+    y = y + lambda*(prox_G1(2*x-y,f, h,w,nabla_x, nabla_y)- x);
 end
 
 
@@ -49,12 +49,12 @@ s = reshape(s,h,w);
 
 
 %Pour normaliser l'image :
-%mini = min(min(u));
-%u = (u - mini)/max(max(u));
+mini = min(min(u));
+u = (u - mini)/max(max(u));
 
 subplot(2,2,1);
-title('Image stripée');
 imshow(img_striped);
+title('Image stripée');
 
 subplot(2,2,2);
 imshow(u);

@@ -1,8 +1,8 @@
 function res = prox_G1 (z,f,h,w, nabla_x, nabla_y)
 
 %parameters : 
-mu_2 = 10;
-mu_1 = 1;
+mu_2 = 1;
+mu_1 = 0.5;
 
 u = z(1:h*w,:);
 s = z(h*w+1:2*h*w,:);
@@ -19,14 +19,14 @@ prox_ic = [u ; s];
 %y1 = nabla_x*u;
 %y2 = nabla_y*s;
 
-if (norm(y1,1) > mu_1)
-    prox_y1 = y1 - mu_1 * y1 ./ norm(y1,1);
+if (norm(y1,2) > mu_1)
+    prox_y1 = y1 - mu_1 * y1 ./ norm(y1,2);
 else
     prox_y1 = zeros(h*w,1);
 end
 
-if (norm(y2,1) > mu_2)
-    prox_y2 = y2 - mu_2*y2 ./ norm(y2,1);
+if (norm(y2,2) > mu_2)
+    prox_y2 = y2 - mu_2*y2 ./ norm(y2,2);
 else
     prox_y2 = zeros(h*w,1);
 end
